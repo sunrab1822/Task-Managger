@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Group;
+use App\Models\UsersGroups;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -33,6 +34,12 @@ class GroupController extends Controller
             "user_count" => 1,
             "image" => "default.png"
         ]);
+
+        UsersGroups::create([
+            "user_id" => Auth::id(),
+            "group_id" => $group->id
+        ]);
+
 
         if ($group != null){
             return Inertia::render('Group/MyGroupPage', ['groups' => Group::all()]);

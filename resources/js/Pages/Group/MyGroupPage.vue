@@ -13,53 +13,29 @@
         </template>
 
 
-
-        <div class="py-3 max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-3 text-gray-900 dark:text-gray-100 flex ">
-                    <div class="p-3 border w-1/4 h-screen flex flex-col justify-between">
-
-                        <div class="w-full">
-                            <div class="mb-14 flex justify-center">
-                                <TaskLogo class=" justify-center" :src="'/storage/images/TSKM.jpg'"/>
-                            </div>
-                            <div
-                                class="flex p-3 mb-1 border border-red-600 justify-center hover:bg-slate-600 cursor-pointer">
-                                <h1>Tasks</h1>
-                            </div>
-                            <div
-                                class="flex p-3 mb-1 border border-red-600 justify-center hover:bg-slate-600 cursor-pointer">
-                                <h1>Members</h1>
-                            </div>
-                        </div>
-
-                        <div class="w-full">
-                            <div
-                                class="flex  text-red-600 p-3 mb-1 border border-red-600 justify-center hover:bg-red-600 hover:text-white cursor-pointer">
-                                <h1>Leave</h1>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="p-3 border w-full h-screen">
-                        <div class="">
-                            <h1>{{ selectedGroup.managger }}</h1>
-                        </div>
-                    </div>
+        <MyGroupLayout>
+            <template #image>
+                <TaskLogo class=" justify-center" :src="'/storage/images/TSKM.jpg'"/>
+            </template>
 
 
 
 
 
+            <div class="flex justify-center">
+                <div>
+
+                </div>
 
 
-
-
+                <div class="border w-1/2">
 
                 </div>
             </div>
-        </div>
+
+
+
+        </MyGroupLayout>
 
 
     </AuthenticatedLayout>
@@ -69,13 +45,11 @@
 </template>
 
 <script setup>
-import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TaskLogo from '@/Components/TaskLogo.vue';
-import TextInput from '@/Components/TextInput.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import CreateGroupForm from './Partials/CreateGroupForm.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
+import MyGroupLayout from '@/Layouts/MyGroupLayout.vue';
 
 const props = defineProps(['groups'])
 console.log(props.groups)

@@ -1,8 +1,6 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TaskLogo from '@/Components/TaskLogo.vue';
 import TextInput from '@/Components/TextInput.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
