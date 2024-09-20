@@ -15,7 +15,7 @@
 
         <MyGroupLayout>
             <template #image>
-                <TaskLogo class=" justify-center" :src="'/storage/images/TSKM.jpg'"/>
+                <TaskLogo class="justify-center" :src="'/storage/images/TSKM.jpg'" />
             </template>
 
 
@@ -30,12 +30,20 @@
 
                 <div class="border w-1/2">
 
+
+                    <!-- kelzdet -->
+                    <Carussel/>
+
+
+
                 </div>
             </div>
 
 
 
         </MyGroupLayout>
+
+
 
 
     </AuthenticatedLayout>
@@ -45,13 +53,16 @@
 </template>
 
 <script setup>
+
 import TaskLogo from '@/Components/TaskLogo.vue';
+import Carussel from '@/Components/Carussel.vue';
+
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import MyGroupLayout from '@/Layouts/MyGroupLayout.vue';
 
-const props = defineProps(['groups'])
+const props = defineProps(['groups' ])
 console.log(props.groups)
 
 const selectedGroup = ref(props.groups[0].group)
