@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/task', [TaskController::class, 'save'])->name('task.add');
     Route::get('/group', [GroupController::class, 'show'])->name('group');
     Route::get('/mygroup', [GroupController::class, 'showGroup'])->name('group.show');
+    Route::get('/group-join', [GroupController::class, 'join'])->name('group.join');
     Route::post('/group', [GroupController::class, 'save'])->name('group.add');
     Route::get('/taskDetails', [TaskController::class, 'showDetail'])->name('task.details');
 
