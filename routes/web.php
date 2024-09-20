@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/group', [GroupController::class, 'save'])->name('group.add');
     Route::get('/taskDetails', [TaskController::class, 'showDetail'])->name('task.details');
 
+    Route::get('/test', [GroupController::class, 'test']);
 });
 
 

@@ -7,7 +7,7 @@
             <div class="flex items-center justify-between">
                 <h2 class=" font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">{{ selectedGroup.name }}</h2>
                 <select v-model="selectedGroup" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
-                    <option v-for="group in groups" :value="group.group">{{ group.group.name }}</option>
+                    <option v-for="group in groups" :value="group">{{ group.name }}</option>
                 </select>
             </div>
         </template>
@@ -29,13 +29,6 @@
 
 
                 <div class="border w-1/2">
-
-
-                    <!-- kelzdet -->
-                    <Carussel/>
-
-
-
                 </div>
             </div>
 
@@ -55,7 +48,6 @@
 <script setup>
 
 import TaskLogo from '@/Components/TaskLogo.vue';
-import Carussel from '@/Components/Carussel.vue';
 
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
@@ -65,6 +57,6 @@ import MyGroupLayout from '@/Layouts/MyGroupLayout.vue';
 const props = defineProps(['groups' ])
 console.log(props.groups)
 
-const selectedGroup = ref(props.groups[0].group)
+const selectedGroup = ref(props.groups[0])
 
 </script>

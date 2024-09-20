@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Group;
+use App\Models\User;
 use App\Models\UsersGroups;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,7 @@ class GroupController extends Controller
         //tudo user groups
 
         //dd(UsersGroups::where('user_id', Auth::id())->with('group')->get());
-        $groups = UsersGroups::where('user_id', Auth::id())->with('group')->get();
+        $groups = User::find(Auth::id())->groups;
 
         // dd($groups);
 
@@ -72,6 +73,11 @@ class GroupController extends Controller
         $groups = UsersGroups::where('user_id', Auth::id())->with('group')->get();
 
         return Inertia::render('Group/MyGroupPage', ['groups' => $groups]);
+    }
+
+    public function test()
+    {
+        return User::find(Auth::id())->groups;
     }
 
 }
